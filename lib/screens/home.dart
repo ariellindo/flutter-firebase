@@ -5,6 +5,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: ,)
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("firebase Login"),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("Home Page")
+          ],
+        )
+      ),
+    );
   }
 }
