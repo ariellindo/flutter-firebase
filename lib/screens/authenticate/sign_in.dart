@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebaselogin/utils/firebase_auth.dart';
+import 'package:flutter_firebaselogin/services/auth.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key key}) : super(key: key);
+class SignIn extends StatefulWidget {
+  const SignIn({Key key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignInState createState() => _SignInState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignInState extends State<SignIn> {
+  final AuthService _auth = AuthService();
   TextEditingController _emailController;
   TextEditingController _passwordController;
 
@@ -22,6 +23,12 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        elevation: 0.0,
+        title: Text('Sign in')
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -48,17 +55,31 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(hintText: "Enter password"),
               ),
               SizedBox(height: 10.0),
+              // RaisedButton(
+              //     child: Text("Login"),
+              //     onPressed: () async {
+              //       if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+              //         print("Email and password can't be empty");
+              //       }
+              //       bool res = await AuthService().signInEmailPass(_emailController.text, _passwordController.text);
+              //       if(res){
+              //         print("Login failed");
+              //       }
+              //     })
+
               RaisedButton(
-                  child: Text("Login"),
-                  onPressed: () async {
-                    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
-                      print("Email and password can't be empty");
-                    }
-                    bool res = await AuthProvider().signInWithEmail(_emailController.text, _passwordController.text);
-                    if(res){
-                      print("Login failed");
-                    }
-                  })
+                child: Text("Sign in Anon"),
+                onPressed: () async {
+                  dynamic result = await _auth.signInAnon();
+
+                  if(result == null) {
+                    print("Login failed");
+                  } else {
+                    print("Sign in");
+                    print(result.uid);
+                  }
+                },
+              )
             ],
           ),
         ),

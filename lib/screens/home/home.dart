@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("firebase Login"),
+        title: Text("firebase Login demo"),
       ),
       body: SingleChildScrollView(
         child: Column(
