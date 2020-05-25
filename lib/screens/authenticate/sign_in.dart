@@ -28,8 +28,16 @@ class _SignInState extends State<SignIn> {
             onPressed: () {
               widget.toggleView();
             },
-            icon: Icon(Icons.person),
-            label: Text("Register"),
+            icon: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            label: Text(
+              "Register",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
         ],
       ),

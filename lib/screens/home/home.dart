@@ -10,7 +10,6 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("Home"),
-        centerTitle: false,
         elevation: 0.0,
         backgroundColor: Colors.purple,
         actions: <Widget>[
@@ -18,8 +17,14 @@ class HomePage extends StatelessWidget {
             onPressed: () async {
               await _auth.signOut();
             },
-            icon: Icon(Icons.person),
-            label: Text("Logout"),
+            icon: Icon(
+              Icons.exit_to_app,
+              color: Colors.white,
+            ),
+            label: Text(
+              "Logout",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),

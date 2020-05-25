@@ -15,18 +15,25 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          backgroundColor: Colors.deepPurple,
-          elevation: 0.0,
-          title: Text('Register'),
-          actions: <Widget>[
+        backgroundColor: Colors.deepPurple,
+        elevation: 0.0,
+        title: Text('Register'),
+        actions: <Widget>[
           FlatButton.icon(
             onPressed: () {
               widget.toggleView();
             },
-            icon: Icon(Icons.person),
-            label: Text("Sign In"),
+            icon: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            label: Text(
+              "Sign In",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
-        ],),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: AuthForm(formType: "Register"),
