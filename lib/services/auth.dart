@@ -10,7 +10,7 @@ class AuthService {
     return user != null ? User(uid: user.uid) : null;
   }
 
-  // auth change user stream
+  // auth change user stream, provider for User model is updatedate
   Stream<User> get user {
     return _auth.onAuthStateChanged
       .map(_userFromFirebaseUser);
@@ -28,8 +28,26 @@ class AuthService {
   }
 
   // sign in action
+  Future signInEmailPass(String email, String pass) async {
+    try {
+      AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: pass);
+      return _userFromFirebaseUser(result.user);
+    } catch (e) {
+      print(e.toString());
+      return e.message;
+    }
+  }
 
   // sign in with email and pass
+  Future registerWithEmailPass(String email, String pass) async {
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: pass);
+      return _userFromFirebaseUser(result.user);
+    } catch (e) {
+      print(e.toString());
+      return e.message;
+    }
+  }
 
   // register with email/pass
 

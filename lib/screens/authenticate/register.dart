@@ -27,11 +27,9 @@ class _RegisterState extends State<Register> {
             label: Text("Sign In"),
           ),
         ],),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: AuthForm(formType: "Register"),
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: AuthForm(formType: "Register"),
       ),
     );
   }

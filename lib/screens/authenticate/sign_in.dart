@@ -33,11 +33,9 @@ class _SignInState extends State<SignIn> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: AuthForm(formType: "Sign In"),
-        ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: AuthForm(formType: "Sign In"),
       ),
     );
   }
