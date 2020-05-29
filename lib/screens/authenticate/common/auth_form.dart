@@ -63,6 +63,21 @@ class _AuthFormState extends State<AuthForm> {
     }
   }
 
+  Widget _buildSignInWithGoogle() {
+    return RaisedButton(
+      child: Text("Google Sign In"),
+      onPressed: () async {
+        dynamic result = await _auth.googleSignIn();
+
+        if (result == null) {
+            print("GOOGLE Sign In failed");
+          } else {
+            print(result.uid);
+          }
+      },
+    );
+  }
+
   Widget _buildSignInEmailPassBtn() {
     return RaisedButton(
       color: Colors.pink[400],
@@ -105,9 +120,11 @@ class _AuthFormState extends State<AuthForm> {
           SizedBox(height: 30.0),
           _buildSignInEmailPassBtn(),
           SizedBox(height: 20.0),
+          _buildSignInWithGoogle(),
+          SizedBox(height: 20.0),
           _buildSignInAnonBtn(),
           SizedBox(
-            height: 20.0,
+            height: 20.0
           ),
           Text(
             error,

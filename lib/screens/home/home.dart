@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Home"),
         elevation: 0.0,
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.deepPurple,
         actions: <Widget>[
           FlatButton.icon(
             onPressed: () async {
